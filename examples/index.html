@@ -13,15 +13,17 @@
       // Initialize the carousel
       const carousel = new CloudImageCarousel('#my-carousel', {
         autoplay: false,
-        autoplayInterval: 5000,
-        showFilenames: true,
-        transitionEffect: 'fade',
-        showBullets: true,
+        autoplayInterval: 3000,
+        cycle: true,
+        showFilenames: false,
         showThumbnails: false,
+        showControls: true,
+        showBullets: true,
+        transitionEffect: 'slide',
         images: [
           'https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg',
           'https://images.pexels.com/photos/31008029/pexels-photo-31008029/free-photo-of-shibuya-crossing-at-night-in-tokyo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'https://images.pexels.com/photos/31008029/pexels-photo-31008029/free-photo-of-shibuya-crossing-at-night-in-tokyo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          'https://images.unsplash.com/photo-1741851374655-3911c1b0e95a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
           'https://images.unsplash.com/photo-1738058170878-7ffd6eb7992b?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
           'https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         ],

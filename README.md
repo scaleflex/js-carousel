@@ -138,8 +138,8 @@ carousel.init();
 
 ### `transitionEffect` (string)
 
-- **Default**: `'slide'`
-- **Options**: `'slide'`, `'fade'`
+- **Default**: `'fade'`
+- **Options**: `'fade'`, `'slide'`
 - **Description**: Sets the transition effect when changing slides
 - **Example**:
 
@@ -166,7 +166,7 @@ const carousel = new CloudImageCarousel('#my-carousel', {
   showThumbnails: true,
   showControls: true,
   showBullets: false,
-  transitionEffect: 'slide',
+  transitionEffect: 'fade',
   images: ['path/to/image1.jpg', 'path/to/image2.jpg', 'path/to/image3.jpg'],
 });
 

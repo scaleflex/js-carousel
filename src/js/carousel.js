@@ -38,7 +38,7 @@ class CloudImageCarousel {
       showThumbnails: options.showThumbnails || true,
       showBullets: options.showBullets || false,
       showControls: options.showControls || true,
-      transitionEffect: options.transitionEffect || 'slide', // slide, fade
+      transitionEffect: options.transitionEffect || 'fade', // slide, fade
       ...options,
     };
 
