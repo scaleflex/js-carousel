@@ -1,5 +1,4 @@
 const ACTIVE_CLASS = 'active';
-const PREV_CLASS = 'prev';
 
 const CAROUSEL_CONTROLS = {
   PREV: 'prev',
@@ -10,4 +9,10 @@ const CAROUSEL_CONTROLS = {
   FULLSCREEN: 'fullscreen',
 };
 
-export { ACTIVE_CLASS, PREV_CLASS, CAROUSEL_CONTROLS };
+const KEYBOARD_KEYS = {
+  ARROW_LEFT: 'ArrowLeft',
+  ARROW_RIGHT: 'ArrowRight',
+  ESCAPE: 'Escape',
+};
+
+export { ACTIVE_CLASS, CAROUSEL_CONTROLS, KEYBOARD_KEYS };

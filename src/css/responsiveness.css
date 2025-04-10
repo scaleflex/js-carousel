@@ -1,0 +1,32 @@
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ci-carousel-controls {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: none;
+    width: 100%;
+    position: relative;
+    bottom: auto !important;
+    right: auto;
+    border-radius: 0;
+  }
+
+  .ci-carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
+  .ci-carousel-prev {
+    margin-left: 16px;
+  }
+
+  .ci-carousel-next {
+    margin-right: 16px;
+  }
+
+  .ci-carousel-thumbnails {
+    padding: 16px;
+    position: relative;
+    top: -40px;
+  }
+}

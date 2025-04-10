@@ -3,9 +3,9 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  background: #ffffff;
+  background: #fafafa;
   border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 8px 43px rgba(0, 0, 0, 0.09);
   overflow: hidden;
 }
 
@@ -32,76 +32,43 @@
   width: 100%;
   height: 100%;
   visibility: hidden;
-  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1);
   opacity: 0;
   filter: blur(8px);
+  transform-origin: center center;
+  will-change: transform;
+  cursor: zoom-in;
+  overflow: hidden;
 }
 
 .ci-carousel-image-wrapper.active {
   opacity: 1;
   visibility: visible;
   filter: blur(0);
+  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0s;
 }
 
 .ci-carousel-image-wrapper img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  pointer-events: none;
+  user-select: none;
 }
 
-/* Modern Controls */
-.ci-carousel-controls {
-  align-items: center;
-  bottom: 40px;
-  display: flex;
-  justify-content: space-between;
-  position: absolute;
-  right: 32px;
-  width: 280px;
-  z-index: 10;
-  background: #fff;
-  border-radius: 20px;
+.ci-carousel-image-wrapper.zoomed {
+  cursor: grab;
 }
 
-.ci-carousel-controls-left,
-.ci-carousel-controls-right {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-  background: rgba(255, 255, 255, 0.92);
-  padding: 12px;
-  border-radius: 32px;
-  backdrop-filter: blur(12px);
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
-}
-
-.ci-carousel-btn {
-  background: transparent;
-  color: #1a1a1a;
-  border: none;
-  width: 44px;
-  height: 44px;
-  cursor: pointer;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.ci-carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.ci-carousel-btn:active {
-  transform: scale(0.96) translateY(0);
+.ci-carousel-image-wrapper.zoomed:active {
+  cursor: grabbing;
 }
 
 /* Refined Bullets */
 .ci-carousel-bullets {
   border-radius: 32px;
   display: flex;
-  gap: 10px;
+  gap: 15px;
   justify-content: center;
   padding: 12px 16px;
 }
@@ -204,8 +171,6 @@
   background: transparent;
 }
 
-.ci-carousel.fullscreen .ci-carousel-controls-left,
-.ci-carousel.fullscreen .ci-carousel-controls-right,
 .ci-carousel.fullscreen .ci-carousel-bullets {
   background: rgba(255, 255, 255, 0.1);
 }
@@ -224,37 +189,4 @@
 
 .ci-carousel.fullscreen .ci-carousel-bullet.active {
   background: #ffffff;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .ci-carousel-controls {
-    bottom: 0px;
-    gap: 16px;
-    justify-content: center;
-    padding: 5px 16px;
-    right: 0;
-    width: 100%;
-  }
-
-  .ci-carousel-controls-left,
-  .ci-carousel-controls-right {
-    padding: 10px;
-  }
-
-  .ci-carousel-btn {
-    width: 40px;
-    height: 40px;
-  }
-
-  .ci-carousel-thumbnails {
-    padding: 16px;
-    position: relative;
-    top: -40px;
-  }
-
-  /* Hide bullets on mobile */
-  .ci-carousel-bullets {
-    display: none;
-  }
 }

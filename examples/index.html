@@ -7,29 +7,39 @@
     <link rel="stylesheet" href="/dist/js-carousel.min.css" />
   </head>
   <body>
-    <div id="my-carousel"></div>
+    <div id="carousel-1"></div>
+    <div id="carousel-2"></div>
     <script src="/dist/js-carousel.min.js"></script>
     <script>
       // Initialize the carousel
-      const carousel = new CloudImageCarousel('#my-carousel', {
+      const carousel1 = new CloudImageCarousel("#carousel-1", {
         autoplay: false,
         autoplayInterval: 3000,
         cycle: true,
         showFilenames: false,
-        showThumbnails: false,
+        showThumbnails: true,
         showControls: true,
-        showBullets: true,
-        transitionEffect: 'slide',
+        showBullets: false,
+        transitionEffect: "slide",
         images: [
-          'https://images.pexels.com/photos/276267/pexels-photo-276267.jpeg',
-          'https://images.pexels.com/photos/31008029/pexels-photo-31008029/free-photo-of-shibuya-crossing-at-night-in-tokyo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-          'https://images.unsplash.com/photo-1741851374655-3911c1b0e95a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          'https://images.unsplash.com/photo-1738058170878-7ffd6eb7992b?q=80&w=1364&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
-          'https://images.pexels.com/photos/100582/pexels-photo-100582.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/hotel.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/birds.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/perfume.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/mountains.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/house.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/frog.png",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/andromeda.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/earth1.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/colours.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/landscape.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/Image03.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/Image02.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/Image04.jpg",
+          "https://demo.cloudimg.io/v7/https://samples.scaleflex.com/plate1.jpg",
         ],
       });
 
-      carousel.init();
+      carousel1.init();
     </script>
   </body>
 </html>

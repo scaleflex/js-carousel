@@ -4,7 +4,7 @@
 
 ### Installation
 
-1. Clone the repository and install dependencies:
+Clone the repository and install dependencies:
 
 ```bash
 npm install
