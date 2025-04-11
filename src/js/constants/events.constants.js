@@ -1,19 +1,19 @@
 // Mouse events
-const CLICK_EVENT = 'click';
-const MOUSEOVER_EVENT = 'mouseover';
-const MOUSEOUT_EVENT = 'mouseout';
-const MOUSEENTER_EVENT = 'mouseenter';
-const MOUSELEAVE_EVENT = 'mouseleave';
-const MOUSEUP_EVENT = 'mouseup';
-const MOUSEDOWN_EVENT = 'mousedown';
-const MOUSEMOVE_EVENT = 'mousemove';
-const MOUSEWHEEL_EVENT = 'wheel';
-const DBLCLICK_EVENT = 'dblclick';
-const CONTEXTMENU_EVENT = 'contextmenu';
-const FOCUS_EVENT = 'focus';
-const BLUR_EVENT = 'blur';
+const CLICK_EVENT = 'click'
+const MOUSEOVER_EVENT = 'mouseover'
+const MOUSEOUT_EVENT = 'mouseout'
+const MOUSEENTER_EVENT = 'mouseenter'
+const MOUSELEAVE_EVENT = 'mouseleave'
+const MOUSEUP_EVENT = 'mouseup'
+const MOUSEDOWN_EVENT = 'mousedown'
+const MOUSEMOVE_EVENT = 'mousemove'
+const MOUSEWHEEL_EVENT = 'wheel'
+const DBLCLICK_EVENT = 'dblclick'
+const CONTEXTMENU_EVENT = 'contextmenu'
+const FOCUS_EVENT = 'focus'
+const BLUR_EVENT = 'blur'
 // Keyboard events
-const KEYDOWN_EVENT = 'keydown';
+const KEYDOWN_EVENT = 'keydown'
 
 export {
   CLICK_EVENT,
@@ -30,4 +30,4 @@ export {
   MOUSEDOWN_EVENT,
   MOUSEMOVE_EVENT,
   MOUSEUP_EVENT,
-};
+}

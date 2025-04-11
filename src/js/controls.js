@@ -1,50 +1,42 @@
-import { createButton } from './utils/dom.utils';
-import { KEYDOWN_EVENT, ICONS as ICONS, KEYBOARD_KEYS } from './constants';
+import { ICONS, KEYBOARD_KEYS, KEYDOWN_EVENT } from './constants'
+import {
+  CI_CAROUSEL_FULLSCREEN_CLASS,
+  CI_CAROUSEL_NEXT_CLASS,
+  CI_CAROUSEL_PREV_CLASS,
+} from './constants/classes.constants'
+import { createButton } from './utils/dom.utils'
 
 export class CarouselControls {
   /**
    * @param {CloudImageCarousel} carousel
    */
   constructor(carousel) {
-    this.carousel = carousel;
-    this.container = carousel.controlsContainer;
-    this.options = carousel.options;
-    this.handleKeyDown = this.handleKeyDown.bind(this);
-    this.setupControls();
+    this.carousel = carousel
+    this.container = carousel.controlsContainer
+    this.options = carousel.options
+    this.handleKeyDown = this.handleKeyDown.bind(this)
+    this.setupControls()
   }
 
   setupControls() {
-    if (!this.options.showControls) return;
+    if (!this.options.showControls) return
 
     // Navigation buttons
-    const prevButton = createButton(
-      'ci-carousel-prev',
-      ICONS.PREV,
-      'Previous Image',
-      () => this.carousel.prev()
-    );
-    const nextButton = createButton(
-      'ci-carousel-next',
-      ICONS.NEXT,
-      'Next Image',
-      () => this.carousel.next()
-    );
+    const prevButton = createButton(CI_CAROUSEL_PREV_CLASS, ICONS.PREV, 'Previous Image', () => this.carousel.prev())
+    const nextButton = createButton(CI_CAROUSEL_NEXT_CLASS, ICONS.NEXT, 'Next Image', () => this.carousel.next())
 
     // Fullscreen control
-    const fullscreenButton = createButton(
-      'ci-carousel-fullscreen',
-      ICONS.FULLSCREEN,
-      'Toggle Fullscreen',
-      () => this.carousel.toggleFullscreen()
-    );
+    const fullscreenButton = createButton(CI_CAROUSEL_FULLSCREEN_CLASS, ICONS.FULLSCREEN, 'Toggle Fullscreen', () =>
+      this.carousel.toggleFullscreen(),
+    )
 
     // Add buttons to container
-    this.container.appendChild(prevButton);
-    this.container.appendChild(fullscreenButton);
-    this.container.appendChild(nextButton);
+    this.container.appendChild(prevButton)
+    this.container.appendChild(fullscreenButton)
+    this.container.appendChild(nextButton)
 
     // Setup keyboard controls
-    this.setupKeyboardControls();
+    this.setupKeyboardControls()
   }
 
   /**
@@ -54,14 +46,14 @@ export class CarouselControls {
   handleKeyDown(e) {
     switch (e.key) {
       case KEYBOARD_KEYS.ARROW_LEFT:
-        this.carousel.prev();
-        break;
+        this.carousel.prev()
+        break
       case KEYBOARD_KEYS.ARROW_RIGHT:
-        this.carousel.next();
-        break;
+        this.carousel.next()
+        break
       case KEYBOARD_KEYS.ESCAPE:
-        this.carousel.resetZoom();
-        break;
+        this.carousel.resetZoom()
+        break
     }
   }
 
@@ -69,6 +61,10 @@ export class CarouselControls {
    * Allows the user to navigate the carousel using the keyboard
    */
   setupKeyboardControls() {
-    document.addEventListener(KEYDOWN_EVENT, this.handleKeyDown);
+    document.addEventListener(KEYDOWN_EVENT, this.handleKeyDown)
+  }
+
+  destroy() {
+    document.removeEventListener(KEYDOWN_EVENT, this.handleKeyDown)
   }
 }

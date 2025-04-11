@@ -7,7 +7,9 @@
     "build": "webpack --mode production",
     "dev": "webpack --mode production & webpack serve --mode development --watch",
     "serve": "http-server -c-1 --cors",
-    "start": "npm run dev & npm run serve"
+    "start": "npm run dev & npm run serve",
+    "format": "prettier --write \"**/*.{js,json,css,md}\"",
+    "format:check": "prettier --check \"**/*.{js,json,css,md}\""
   },
   "keywords": [
     "carousel",
@@ -19,10 +21,12 @@
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
+    "@trivago/prettier-plugin-sort-imports": "^5.2.2",
     "babel-loader": "^9.2.1",
     "css-loader": "^7.1.2",
     "css-minimizer-webpack-plugin": "^7.0.2",
     "mini-css-extract-plugin": "^2.9.2",
+    "prettier": "^3.5.3",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.14",
     "webpack": "^5.98.0",
@@ -31,5 +35,9 @@
   },
   "directories": {
     "example": "examples"
+  },
+  "dependencies": {
+    "@panzoom/panzoom": "^4.6.0",
+    "screenfull": "^6.0.2"
   }
 }

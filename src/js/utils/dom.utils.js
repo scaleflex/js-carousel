@@ -1,4 +1,4 @@
-import { CLICK_EVENT } from '../constants';
+import { CLICK_EVENT } from '../constants'
 
 /**
  * Creates a button element
@@ -8,12 +8,12 @@ import { CLICK_EVENT } from '../constants';
  * @returns {HTMLButtonElement} - The created button element
  */
 const createButton = (className, innerHTML, ariaLabel, onClick) => {
-  const button = document.createElement('button');
-  button.classList.add('ci-carousel-btn', className);
-  button.setAttribute('aria-label', ariaLabel);
-  button.innerHTML = innerHTML;
-  button.addEventListener(CLICK_EVENT, onClick);
-  return button;
-};
+  const button = document.createElement('button')
+  button.classList.add('ci-carousel-btn', className)
+  button.setAttribute('aria-label', ariaLabel)
+  button.innerHTML = innerHTML
+  button.addEventListener(CLICK_EVENT, onClick)
+  return button
+}
 
-export { createButton };
+export { createButton }

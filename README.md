@@ -44,10 +44,10 @@ The carousel is exposed as a UMD module, so it works with:
 const carousel = new CloudImageCarousel('#carousel', {
   // your options here
   images: ['path/to/image1.jpg', 'path/to/image2.jpg'],
-});
+})
 
 // initialize carousel
-carousel.init();
+carousel.init()
 ```
 
 ## Available Options
@@ -60,7 +60,7 @@ carousel.init();
 
 ```javascript
 {
-  autoplay: true;
+  autoplay: true
 }
 ```
 
@@ -72,7 +72,7 @@ carousel.init();
 
 ```javascript
 {
-  autoplayInterval: 5000; // Changes slide every 5 seconds
+  autoplayInterval: 5000 // Changes slide every 5 seconds
 }
 ```
 
@@ -84,7 +84,7 @@ carousel.init();
 
 ```javascript
 {
-  cycle: false; // Stops at the last image
+  cycle: false // Stops at the last image
 }
 ```
 
@@ -96,7 +96,7 @@ carousel.init();
 
 ```javascript
 {
-  showFilenames: true; // Displays image filenames
+  showFilenames: true // Displays image filenames
 }
 ```
 
@@ -108,7 +108,7 @@ carousel.init();
 
 ```javascript
 {
-  showThumbnails: false; // Hides thumbnail navigation
+  showThumbnails: false // Hides thumbnail navigation
 }
 ```
 
@@ -120,7 +120,7 @@ carousel.init();
 
 ```javascript
 {
-  showControls: false; // Hides all control buttons
+  showControls: false // Hides all control buttons
 }
 ```
 
@@ -132,7 +132,7 @@ carousel.init();
 
 ```javascript
 {
-  showBullets: true; // Shows bullet navigation
+  showBullets: true // Shows bullet navigation
 }
 ```
 
@@ -145,7 +145,7 @@ carousel.init();
 
 ```javascript
 {
-  transitionEffect: 'fade'; // Uses fade transition between slides
+  transitionEffect: 'fade' // Uses fade transition between slides
 }
 ```
 
@@ -168,10 +168,10 @@ const carousel = new CloudImageCarousel('#my-carousel', {
   showBullets: false,
   transitionEffect: 'fade',
   images: ['path/to/image1.jpg', 'path/to/image2.jpg', 'path/to/image3.jpg'],
-});
+})
 
 // initialize carousel
-carousel.init();
+carousel.init()
 ```
 
 ## Features
@@ -196,25 +196,25 @@ The carousel instance provides several methods for programmatic control:
 
 ```javascript
 // Navigation
-carousel.next(); // Go to next slide
-carousel.prev(); // Go to previous slide
-carousel.goToSlide(index); // Go to specific slide
+carousel.next() // Go to next slide
+carousel.prev() // Go to previous slide
+carousel.goToSlide(index) // Go to specific slide
 
 // Zoom Controls
-carousel.zoomIn(); // Increase zoom level
-carousel.zoomOut(); // Decrease zoom level
-carousel.resetZoom(); // Reset zoom to default
+carousel.zoomIn() // Increase zoom level
+carousel.zoomOut() // Decrease zoom level
+carousel.resetZoom() // Reset zoom to default
 
 // Fullscreen
-carousel.toggleFullscreen(); // Toggle fullscreen mode
+carousel.toggleFullscreen() // Toggle fullscreen mode
 
 // Autoplay Controls
-carousel.startAutoplay(); // Start automatic slideshow
-carousel.stopAutoplay(); // Stop automatic slideshow
-carousel.resetAutoplay(); // Reset autoplay timer
+carousel.startAutoplay() // Start automatic slideshow
+carousel.stopAutoplay() // Stop automatic slideshow
+carousel.resetAutoplay() // Reset autoplay timer
 
 // Cleanup
-carousel.destroy(); // Clean up resources and event listeners
+carousel.destroy() // Clean up resources and event listeners
 ```
 
 ## Browser Support

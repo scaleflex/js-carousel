@@ -45,7 +45,9 @@
   opacity: 1;
   visibility: visible;
   filter: blur(0);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0s;
+  transition:
+    opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0s;
 }
 
 .ci-carousel-image-wrapper img {
@@ -189,4 +191,12 @@
 
 .ci-carousel.fullscreen .ci-carousel-bullet.active {
   background: #ffffff;
+}
+
+.ci-carousel.fullscreen .ci-carousel-controls {
+  position: absolute;
+  bottom: 40px;
+  right: 32px;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
 }
