@@ -89,5 +89,6 @@
     position: absolute;
     bottom: 30px;
     width: 100%;
+    opacity: 1;
   }
 }

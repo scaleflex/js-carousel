@@ -1,5 +1,9 @@
 /* Modern Controls */
 
+.ci-carousel:hover .ci-carousel-controls {
+  opacity: 1;
+}
+
 .ci-carousel-controls {
   align-items: center;
   bottom: 130px;
@@ -9,11 +13,12 @@
   width: 280px;
   z-index: 10;
   border-radius: 20px;
-  transition: all 0.3s ease;
   width: 100%;
   padding-left: 30px;
   padding-right: 30px;
   box-sizing: border-box;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
 }
 
 .ci-carousel-btn {
