@@ -1,11 +1,6 @@
 /* Responsive Design */
 
 @media (max-width: 1024px) {
-  .ci-carousel-controls {
-    width: 220px;
-    right: 24px;
-  }
-
   .ci-carousel-btn {
     width: 40px;
     height: 40px;
@@ -14,19 +9,15 @@
 
 @media (max-width: 768px) {
   .ci-carousel-controls {
-    position: static;
-    width: 100%;
-    padding: 16px;
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: none;
     border-radius: 0;
-    margin-top: 8px;
+    box-shadow: none;
     box-sizing: border-box;
-  }
-
-  .ci-carousel-has-thumbnails .ci-carousel-controls {
-    bottom: auto;
-    margin-bottom: 8px;
+    padding: 16px;
+    position: absolute;
+    width: 100%;
+    right: 0;
+    box-sizing: border-box;
+    bottom: 80px;
   }
 
   .ci-carousel-btn {
@@ -75,12 +66,6 @@
     padding: 12px;
   }
 
-  .ci-carousel-btn {
-    width: 36px;
-    height: 36px;
-    font-size: 14px;
-  }
-
   .ci-carousel-thumbnails {
     padding: 12px;
     gap: 8px;
@@ -89,5 +74,20 @@
   .ci-carousel-thumbnail {
     width: 64px;
     height: 48px;
+  }
+}
+
+/* Detects if the viewport height is below 500px */
+@media screen and (max-height: 500px) {
+  /* Make the carousel container take the full height of the viewport */
+  .ci-carousel {
+    height: 100vh;
+  }
+
+  /* Adjust the controls to be at the bottom of the viewport */
+  .ci-carousel-controls {
+    position: absolute;
+    bottom: 30px;
+    width: 100%;
   }
 }

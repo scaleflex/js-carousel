@@ -77,16 +77,16 @@ class CloudImageCarousel {
   init() {
     this.createStructure()
 
-    if (this.options.showControls) {
-      this.controls = new CarouselControls(this)
-      this.zoomPanControls = new ZoomPanControls(this)
-    }
-
     if (this.options.autoplay) {
       this.startAutoplay()
     }
 
     this.loadImages(this.options.images)
+
+    if (this.options.showControls) {
+      this.controls = new CarouselControls(this)
+      this.zoomPanControls = new ZoomPanControls(this)
+    }
   }
 
   createStructure() {

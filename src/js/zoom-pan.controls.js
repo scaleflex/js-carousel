@@ -79,7 +79,6 @@ export class ZoomPanControls {
 
     // this should be the image container `ci-carousel-image-wrapper` class
     const parent = imageElement.parentElement
-
     // Store handlers separately for clean removal later
     this.currentHandlers = {
       wheel: this.panzoomInstance.zoomWithWheel,
@@ -99,9 +98,6 @@ export class ZoomPanControls {
     document.addEventListener('pointermove', this.currentHandlers.pointermove)
     document.addEventListener('pointerup', this.currentHandlers.pointerup)
     imageElement.addEventListener('panzoomchange', this.currentHandlers.panzoomchange)
-
-    // Set initial cursor
-    imageElement.style.cursor = 'zoom-in'
   }
 
   /**

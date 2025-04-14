@@ -3,7 +3,7 @@
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  background: #fafafa;
+  background: #efefef;
   border-radius: 16px;
   box-shadow: 0 8px 43px rgba(0, 0, 0, 0.09);
   overflow: hidden;
@@ -14,7 +14,7 @@
   width: 100%;
   aspect-ratio: 16 / 9;
   overflow: hidden;
-  background: #fafafa;
+  background: #efefef;
 }
 
 .ci-carousel-images {
@@ -37,7 +37,6 @@
   filter: blur(8px);
   transform-origin: center center;
   will-change: transform;
-  cursor: zoom-in;
   overflow: hidden;
 }
 
