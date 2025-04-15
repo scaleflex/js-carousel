@@ -37,6 +37,7 @@ module.exports = {
     minimize: true,
     minimizer: [
       new TerserPlugin({
+        extractComments: false, // Remove comments from the output and get rid of the license comment
         terserOptions: {
           compress: true,
           mangle: true,

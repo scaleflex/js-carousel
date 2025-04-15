@@ -15,6 +15,16 @@
   aspect-ratio: 16 / 9;
   overflow: hidden;
   background: #efefef;
+  touch-action: pan-y pinch-zoom;
+}
+
+.ci-carousel-images-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  touch-action: pan-y pinch-zoom;
+  -webkit-user-select: none;
+  user-select: none;
 }
 
 .ci-carousel-images {
@@ -67,11 +77,11 @@
 
 /* Refined Bullets */
 .ci-carousel-bullets {
-  border-radius: 32px;
   display: flex;
   gap: 15px;
   justify-content: center;
   padding: 12px 16px;
+  background: #fff;
 }
 
 .ci-carousel-bullet {
@@ -153,7 +163,7 @@
 }
 
 /* Enhanced Fullscreen Mode */
-.ci-carousel.fullscreen {
+.ci-carousel.is-fullscreen {
   position: fixed;
   top: 0;
   left: 0;
@@ -167,35 +177,33 @@
   color: white;
 }
 
-.ci-carousel.fullscreen .ci-carousel-main {
+.ci-carousel.is-fullscreen .ci-carousel-main {
   height: 100vh;
   background: transparent;
 }
 
-.ci-carousel.fullscreen .ci-carousel-bullets {
+.ci-carousel.is-fullscreen .ci-carousel-bullets {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.ci-carousel.fullscreen .ci-carousel-btn {
-  color: #ffffff;
+.ci-carousel.is-fullscreen .ci-carousel-btn {
+  color: #1a1a1a;
 }
 
-.ci-carousel.fullscreen .ci-carousel-btn:hover {
+.ci-carousel.is-fullscreen .ci-carousel-btn:hover {
   background: rgba(255, 255, 255, 0.1);
 }
 
-.ci-carousel.fullscreen .ci-carousel-bullet {
+.ci-carousel.is-fullscreen .ci-carousel-bullet {
   background: rgba(255, 255, 255, 0.3);
 }
 
-.ci-carousel.fullscreen .ci-carousel-bullet.active {
+.ci-carousel.is-fullscreen .ci-carousel-bullet.active {
   background: #ffffff;
 }
 
-.ci-carousel.fullscreen .ci-carousel-controls {
+.ci-carousel.is-fullscreen .ci-carousel-controls {
   position: absolute;
-  bottom: 40px;
-  right: 32px;
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(8px);
 }

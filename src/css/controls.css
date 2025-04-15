@@ -1,24 +1,28 @@
 /* Modern Controls */
 
-.ci-carousel:hover .ci-carousel-controls {
-  opacity: 1;
+.ci-carousel-has-controls .ci-carousel-bottom-container {
+  position: relative;
 }
 
 .ci-carousel-controls {
   align-items: center;
-  bottom: 130px;
   display: flex;
   justify-content: space-between;
-  position: absolute;
   width: 280px;
   z-index: 10;
   border-radius: 20px;
   width: 100%;
-  padding-left: 30px;
-  padding-right: 30px;
+  padding: 30px;
   box-sizing: border-box;
   transition: opacity 0.5s ease-in-out;
   opacity: 0;
+  position: absolute;
+  top: -100px;
+  left: 0;
+}
+
+.ci-carousel-controls.controls-visible {
+  opacity: 1;
 }
 
 .ci-carousel-btn {
@@ -48,4 +52,11 @@
 
 .ci-carousel-btn:active {
   transform: scale(0.96) translateY(0);
+}
+
+/* Hoverable controls will only show when hovering over the carousel and if browser supports hover */
+@media (hover: hover) {
+  .ci-carousel:hover .ci-carousel-controls {
+    opacity: 1;
+  }
 }

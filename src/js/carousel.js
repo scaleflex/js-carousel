@@ -1,11 +1,25 @@
 import screenfull from 'screenfull'
 
-import { ACTIVE_CLASS, CI_CAROUSEL_BULLET_CLASS, CI_CAROUSEL_THUMBNAILS_CLASS } from './constants/classes.constants'
+import {
+  ACTIVE_CLASS,
+  CI_CAROUSEL_BULLETS_CONTAINER_CLASS,
+  CI_CAROUSEL_BULLET_CLASS,
+  CI_CAROUSEL_CONTROLS_CLASS,
+  CI_CAROUSEL_FULLSCREEN_CLASS,
+  CI_CAROUSEL_IMAGES_CONTAINER_CLASS,
+  CI_CAROUSEL_IMAGE_CLASS,
+  CI_CAROUSEL_IMAGE_WRAPPER_CLASS,
+  CI_CAROUSEL_MAIN_CLASS,
+  CI_CAROUSEL_THUMBNAILS_CLASS,
+  CI_HOST_CONTAINER_CLASS,
+} from './constants/classes.constants'
 import { CLICK_EVENT } from './constants/events.constants'
+import { ICONS } from './constants/icons.contants'
 import { TRANSITION_EFFECTS } from './constants/transition.constants'
-import { CarouselControls } from './controls'
+import { CarouselControls } from './controls/controls'
+import { SwipeControls } from './controls/swipe.controls'
+import { ZoomPanControls } from './controls/zoom-pan.controls'
 import { getFilenameWithoutExtension } from './utils/image.utils'
-import { ZoomPanControls } from './zoom-pan.controls'
 
 class CloudImageCarousel {
   /**
@@ -44,6 +58,7 @@ class CloudImageCarousel {
     this.currentIndex = 0
     this.images = []
     this.isFullscreen = false
+    this.swipeControls = null
   }
 
   /**
@@ -54,7 +69,7 @@ class CloudImageCarousel {
   /**
    * Image container
    */
-  imageContainer
+  imagesContainer
 
   /**
    * Thumbnails container
@@ -87,31 +102,36 @@ class CloudImageCarousel {
       this.controls = new CarouselControls(this)
       this.zoomPanControls = new ZoomPanControls(this)
     }
+
+    this.swipeControls = new SwipeControls(this)
   }
 
   createStructure() {
     // Main container
-    this.container.classList.add('ci-carousel')
     this.container.setAttribute('role', 'region')
+    this.container.classList.add(CI_HOST_CONTAINER_CLASS)
     this.container.setAttribute('aria-label', 'Image carousel')
 
     // Main view
     this.mainView = document.createElement('div')
-    this.mainView.classList.add('ci-carousel-main')
+    this.mainView.classList.add(CI_CAROUSEL_MAIN_CLASS)
 
-    // Image container
-    this.imageContainer = document.createElement('div')
-    this.imageContainer.classList.add('ci-carousel-images')
-    this.imageContainer.setAttribute('role', 'list')
+    // Images container
+    this.imagesContainer = document.createElement('div')
+    this.imagesContainer.classList.add(CI_CAROUSEL_IMAGES_CONTAINER_CLASS)
+    this.imagesContainer.setAttribute('role', 'list')
 
-    // Controls
-    this.controlsContainer = document.createElement('div')
-    this.controlsContainer.classList.add('ci-carousel-controls')
+    // Bottom container is used for grouping controls, bullets and thumbnails
+    this.bottomContainer = document.createElement('div')
+    this.bottomContainer.classList.add('ci-carousel-bottom-container')
 
-    // Bullets container
-    if (this.options.showBullets) {
-      this.bulletsContainer = document.createElement('div')
-      this.bulletsContainer.classList.add('ci-carousel-bullets')
+    if (this.options.showControls) {
+      // Controls
+      this.controlsContainer = document.createElement('div')
+      this.controlsContainer.classList.add(CI_CAROUSEL_CONTROLS_CLASS)
+      // add class to container to indicate that it has controls
+      this.container.classList.add('ci-carousel-has-controls')
+      this.bottomContainer.appendChild(this.controlsContainer)
     }
 
     // Thumbnails
@@ -119,20 +139,21 @@ class CloudImageCarousel {
       this.container.classList.add('ci-carousel-has-thumbnails')
       this.thumbnailsContainer = document.createElement('div')
       this.thumbnailsContainer.classList.add(CI_CAROUSEL_THUMBNAILS_CLASS)
+      this.bottomContainer.appendChild(this.thumbnailsContainer)
     }
 
-    this.mainView.appendChild(this.imageContainer)
-    this.container.appendChild(this.mainView)
-    this.container.appendChild(this.controlsContainer)
-
-    if (this.thumbnailsContainer) {
-      this.container.appendChild(this.thumbnailsContainer)
-    }
-
-    if (this.bulletsContainer) {
+    // Bullets container
+    if (this.options.showBullets) {
+      this.bulletsContainer = document.createElement('div')
+      this.bulletsContainer.classList.add(CI_CAROUSEL_BULLETS_CONTAINER_CLASS)
       this.container.classList.add('ci-carousel-has-bullets')
-      this.container.appendChild(this.bulletsContainer)
+      this.bottomContainer.appendChild(this.bulletsContainer)
     }
+
+    // Add containers to main view
+    this.mainView.appendChild(this.imagesContainer)
+    this.container.appendChild(this.mainView)
+    this.container.appendChild(this.bottomContainer)
   }
 
   /**
@@ -155,11 +176,11 @@ class CloudImageCarousel {
    * Creates image wrappers with accessibility attributes and transition effects
    */
   renderImages() {
-    this.imageContainer.innerHTML = ''
+    this.imagesContainer.innerHTML = ''
     this.images.forEach((image, index) => {
       // Create wrapper for each image with proper transition and accessibility setup
       const wrapper = document.createElement('div')
-      wrapper.classList.add('ci-carousel-image-wrapper')
+      wrapper.classList.add(CI_CAROUSEL_IMAGE_WRAPPER_CLASS)
       wrapper.classList.add(this.options.transitionEffect)
       wrapper.style.display = index === this.currentIndex ? 'block' : 'none'
 
@@ -172,7 +193,7 @@ class CloudImageCarousel {
       }
 
       const img = new Image()
-      img.classList.add('ci-carousel-image')
+      img.classList.add(CI_CAROUSEL_IMAGE_CLASS)
 
       // Setup lazy loading: Use data-src to store actual image URL
       // and a tiny SVG as placeholder until image is in viewport
@@ -193,7 +214,7 @@ class CloudImageCarousel {
         wrapper.appendChild(filename)
       }
 
-      this.imageContainer.appendChild(wrapper)
+      this.imagesContainer.appendChild(wrapper)
     })
 
     if (this.options.showThumbnails) {
@@ -232,7 +253,7 @@ class CloudImageCarousel {
       })
     })
 
-    const images = this.imageContainer.querySelectorAll('.ci-carousel-image')
+    const images = this.imagesContainer.querySelectorAll(`.${CI_CAROUSEL_IMAGE_CLASS}`)
     images.forEach((img) => {
       this.observer.observe(img)
     })
@@ -242,7 +263,7 @@ class CloudImageCarousel {
    * Fallback to load all images immediately if IntersectionObserver is not supported
    */
   loadVisibleImages() {
-    const images = this.imageContainer.querySelectorAll('.ci-carousel-image')
+    const images = this.imagesContainer.querySelectorAll(`.${CI_CAROUSEL_IMAGE_CLASS}`)
     images.forEach((img) => {
       const src = img.dataset.src
       if (src) {
@@ -354,7 +375,7 @@ class CloudImageCarousel {
    * @param {number} prevIndex - The index of the previous slide
    */
   updateSlide(prevIndex) {
-    const slides = this.imageContainer.children
+    const slides = this.imagesContainer.children
     const prevSlide = slides[prevIndex]
     const currentSlide = slides[this.currentIndex]
 
@@ -425,6 +446,9 @@ class CloudImageCarousel {
       // Update state based on actual fullscreen state
       screenfull.on('change', () => {
         this.isFullscreen = screenfull.isFullscreen
+        document.querySelector(`.${CI_CAROUSEL_FULLSCREEN_CLASS}`).innerHTML = this.isFullscreen
+          ? ICONS.EXIT_FULLSCREEN
+          : ICONS.FULLSCREEN
         this.container.classList.toggle('is-fullscreen', this.isFullscreen)
       })
     }
@@ -476,11 +500,15 @@ class CloudImageCarousel {
       screenfull.off('change')
     }
 
+    if (this.swipeControls) {
+      this.swipeControls.destroy()
+    }
+
     // Clear references
     this.images = []
     this.container = null
     this.mainView = null
-    this.imageContainer = null
+    this.imagesContainer = null
     this.thumbnailsContainer = null
     this.controlsContainer = null
     this.bulletsContainer = null

@@ -1,8 +1,8 @@
 import Panzoom from '@panzoom/panzoom'
 
-import { CI_CAROUSEL_IMAGE_CLASS } from './constants/classes.constants'
-import { MOUSEWHEEL_EVENT } from './constants/events.constants'
-import { debounce } from './utils/throttling.utils'
+import { CI_CAROUSEL_IMAGE_CLASS } from '../constants/classes.constants'
+import { MOUSEWHEEL_EVENT } from '../constants/events.constants'
+import { debounce } from '../utils/throttling.utils'
 
 export class ZoomPanControls {
   /**
@@ -10,7 +10,7 @@ export class ZoomPanControls {
    */
   constructor(carousel) {
     this.carousel = carousel
-    this.imageContainer = carousel.imageContainer
+    this.imagesContainer = carousel.imagesContainer
     this.panzoomInstance = null
 
     // add debounce to limit processing of wheel events
@@ -21,7 +21,7 @@ export class ZoomPanControls {
       }
     }, 16) // approximately 60fps which is the optimal refresh rate for smooth animations in most browsers
 
-    this.imageContainer.addEventListener(MOUSEWHEEL_EVENT, this.handleWheel.bind(this))
+    this.imagesContainer.addEventListener(MOUSEWHEEL_EVENT, this.handleWheel.bind(this))
     this.initializeVisibleImage()
   }
 
@@ -111,7 +111,7 @@ export class ZoomPanControls {
   }
 
   getCurrentWrapper() {
-    return this.imageContainer.children[this.carousel.currentIndex]
+    return this.imagesContainer.children[this.carousel.currentIndex]
   }
 
   zoomIn(options = {}) {
@@ -163,6 +163,6 @@ export class ZoomPanControls {
 
   destroy() {
     this.cleanupCurrentPanzoom()
-    this.imageContainer.removeEventListener(MOUSEWHEEL_EVENT, this.handleWheel)
+    this.imagesContainer.removeEventListener(MOUSEWHEEL_EVENT, this.handleWheel)
   }
 }
