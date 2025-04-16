@@ -1,2 +1,232 @@
-# js-carousel
-Carousel and Gallery Zoom
+# Cloudimage Carousel Options
+
+## Setup and Build Instructions
+
+### Installation
+
+Clone the repository and install dependencies:
+
+```bash
+npm install
+```
+
+### Building for Production
+
+To build minified files for production:
+
+```bash
+npm run build
+```
+
+This will create two minified files in the `dist` directory:
+
+- `js-carousel.min.js` - Minified JavaScript bundle
+- `js-carousel.min.css` - Minified CSS bundle
+
+### Using the Minified Files
+
+Include the minified files in your HTML:
+
+```html
+<link rel="stylesheet" href="path/to/js-carousel.min.css" />
+<script src="path/to/js-carousel.min.js"></script>
+```
+
+The carousel is exposed as a UMD module, so it works with:
+
+- Browser globals (`window.CloudImageCarousel`)
+- AMD modules
+- CommonJS/Node.js modules
+
+## Basic Usage
+
+```javascript
+const carousel = new CloudImageCarousel('#carousel', {
+  // your options here
+  images: ['path/to/image1.jpg', 'path/to/image2.jpg'],
+})
+
+// initialize carousel
+carousel.init()
+```
+
+## Available Options
+
+### `autoplay` (boolean)
+
+- **Default**: `false`
+- **Description**: Enables automatic slideshow of images
+- **Example**:
+
+```javascript
+{
+  autoplay: true
+}
+```
+
+### `autoplayInterval` (number)
+
+- **Default**: `3000` (3 seconds)
+- **Description**: Sets the time interval (in milliseconds) between slides when autoplay is enabled
+- **Example**:
+
+```javascript
+{
+  autoplayInterval: 5000 // Changes slide every 5 seconds
+}
+```
+
+### `cycle` (boolean)
+
+- **Default**: `true`
+- **Description**: Determines if the carousel should loop back to the first image after reaching the last one
+- **Example**:
+
+```javascript
+{
+  cycle: false // Stops at the last image
+}
+```
+
+### `showFilenames` (boolean)
+
+- **Default**: `false`
+- **Description**: Shows/hides the filename caption below each image. Filenames are automatically extracted from the image URL
+- **Example**:
+
+```javascript
+{
+  showFilenames: true // Displays image filenames
+}
+```
+
+### `showThumbnails` (boolean)
+
+- **Default**: `true`
+- **Description**: Shows/hides the thumbnail navigation bar at the bottom of the carousel
+- **Example**:
+
+```javascript
+{
+  showThumbnails: false // Hides thumbnail navigation
+}
+```
+
+### `showControls` (boolean)
+
+- **Default**: `true`
+- **Description**: Shows/hides the control buttons (previous/next navigation, zoom controls, fullscreen toggle)
+- **Example**:
+
+```javascript
+{
+  showControls: false // Hides all control buttons
+}
+```
+
+### `showBullets` (boolean)
+
+- **Default**: `false`
+- **Description**: Shows/hides bullet navigation indicators below the carousel
+- **Example**:
+
+```javascript
+{
+  showBullets: true // Shows bullet navigation
+}
+```
+
+### `transitionEffect` (string)
+
+- **Default**: `'fade'`
+- **Options**: `'fade'`, `'slide'`
+- **Description**: Sets the transition effect when changing slides
+- **Example**:
+
+```javascript
+{
+  transitionEffect: 'fade' // Uses fade transition between slides
+}
+```
+
+## Complete Example
+
+Here's an example showing all options with their default values:
+
+```html
+<div id="my-carousel"></div>
+```
+
+```javascript
+const carousel = new CloudImageCarousel('#my-carousel', {
+  autoplay: false,
+  autoplayInterval: 3000,
+  cycle: true,
+  showFilenames: false,
+  showThumbnails: true,
+  showControls: true,
+  showBullets: false,
+  transitionEffect: 'fade',
+  images: ['path/to/image1.jpg', 'path/to/image2.jpg', 'path/to/image3.jpg'],
+})
+
+// initialize carousel
+carousel.init()
+```
+
+## Features
+
+### Built-in Features
+
+- **Lazy Loading**: Images are loaded on-demand using IntersectionObserver for better performance
+- **Keyboard Navigation**:
+  - Left/Right arrow keys to navigate between slides
+  - Escape key to exit fullscreen mode
+- **Touch Support**: Swipe gestures for mobile devices
+- **Responsive Design**: Automatically adjusts to container width
+- **Zoom Controls**:
+  - Zoom in/out functionality
+  - Reset zoom level
+  - Mouse wheel zoom support
+- **Fullscreen Mode**: Toggle fullscreen view of the carousel
+
+### API Methods
+
+The carousel instance provides several methods for programmatic control:
+
+```javascript
+// Navigation
+carousel.next() // Go to next slide
+carousel.prev() // Go to previous slide
+carousel.goToSlide(index) // Go to specific slide
+
+// Zoom Controls
+carousel.zoomIn() // Increase zoom level
+carousel.zoomOut() // Decrease zoom level
+carousel.resetZoom() // Reset zoom to default
+
+// Fullscreen
+carousel.toggleFullscreen() // Toggle fullscreen mode
+
+// Autoplay Controls
+carousel.startAutoplay() // Start automatic slideshow
+carousel.stopAutoplay() // Stop automatic slideshow
+carousel.resetAutoplay() // Reset autoplay timer
+
+// Cleanup
+carousel.destroy() // Clean up resources and event listeners
+```
+
+## Browser Support
+
+- Modern browsers (Chrome, Firefox, Safari, Edge)
+- Fallback support for browsers without IntersectionObserver
+- Touch events support for mobile devices
+
+## Notes
+
+- All options are optional and will fall back to their default values if not specified
+- The carousel container element can be specified either as a CSS selector string or as a DOM element
+- Image sources should be provided as an array of URLs using the `loadImages()` method
+- For best performance, consider using optimized image sizes and formats
+- The carousel automatically handles window resize events and orientation changes

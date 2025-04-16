@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CloudImage Carousel Example</title>
+    <link rel="stylesheet" href="/dist/js-carousel.min.css" />
+  </head>
+  <body>
+    <div id="carousel-1"></div>
+    <script src="/dist/js-carousel.min.js"></script>
+    <script>
+      // Initialize the carousel
+      const carousel1 = new CloudImageCarousel('#carousel-1', {
+        autoplay: false,
+        autoplayInterval: 3000,
+        cycle: true,
+        showFilenames: false,
+        showThumbnails: true,
+        showControls: true,
+        showBullets: false,
+        transitionEffect: 'slide',
+        images: [
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/hotel.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/birds.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/perfume.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/mountains.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/house.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/frog.png',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/andromeda.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/earth1.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/colours.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/landscape.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/Image03.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/Image02.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/Image04.jpg',
+          'https://demo.cloudimg.io/v7/https://samples.scaleflex.com/plate1.jpg',
+        ],
+      })
+
+      carousel1.init()
+    </script>
+  </body>
+</html>
