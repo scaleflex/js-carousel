@@ -1,4 +1,28 @@
-# Cloudimage Carousel Options
+
+<h1 align="center">
+   JS carousel | Cloudimage (DMO)
+</h1>
+
+<h3 align="center">
+   A lightning-fast, lightweight JS carousel built for modern web performance
+</h3>
+<p align="center">
+		<img
+			alt="Close-up of a frog's picture on top of a carousel of other images"
+			src="https://scaleflex.cloudimg.io/v7/plugins/js-carousel/carousel_exemple.png">
+</p>
+
+
+
+### Introduction:
+
+Meet `js-carousel` by Scaleflex—a minimal, no-nonsense JavaScript carousel plugin that does *exactly* what you need it to do: load fast, look slick, and play nice with performance. Designed with zero dependencies and a featherlight footprint, this carousel is tailor-made for developers and performance-obsessed teams who don’t want to trade speed for style. Whether you're running a headless CMS or optimizing for that last Lighthouse point, `js-carousel` by Scaleflex is the go-to solution.
+
+`js-carousel` by Scaleflex does not bundle in more features than you'll ever use, it focuses on doing one thing exceptionally well: delivering a fast, responsive, and ultra-smooth image slider & zoomer experience with minimal setup. It’s the smart choice for frontend engineers who value UX as much as DX. Simple to integrate, easy to customize, and built for scale.
+
+To see the Carousel plugin in action, please check out the [Demo page](https://scaleflex.cloudimg.io/v7/plugins/js-carousel/carousel-demo.html).
+
+# JS Carousel Options
 
 ## Setup and Build Instructions
 
