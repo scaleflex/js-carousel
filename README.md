@@ -20,6 +20,8 @@ Meet `js-carousel` by Scaleflex—a minimal, no-nonsense JavaScript carousel plu
 
 `js-carousel` by Scaleflex does not bundle in more features than you'll ever use, it focuses on doing one thing exceptionally well: delivering a fast, responsive, and ultra-smooth image slider & zoomer experience with minimal setup. It’s the smart choice for frontend engineers who value UX as much as DX. Simple to integrate, easy to customize, and built for scale.
 
+To see the Carousel plugin in action, please check out the [Demo page](https://scaleflex.cloudimg.io/v7/plugins/js-carousel/carousel-demo.html).
+
 # JS Carousel Options
 
 ## Setup and Build Instructions
