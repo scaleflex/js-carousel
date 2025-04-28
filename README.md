@@ -196,8 +196,6 @@ carousel.init()
 }
 ```
 
-Let me verify this by checking the constants file for thumbnail alignment.
-
 ## Complete Example
 
 Here's an example showing all options with their default values:
